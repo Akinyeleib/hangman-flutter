@@ -10,7 +10,11 @@ List<String> countries = [
   "Chad",
   "Portugal",
   "France",
-  "Argentina"
+  "Argentina",
+  "China",
+  "Japan",
+  "Croatia",
+  "Belgium"
 ];
 
 class HangMan extends StatefulWidget {
@@ -34,17 +38,23 @@ class _HangManState extends State<HangMan> {
           centerTitle: true,
         ),
         body: Container(
+          alignment: Alignment.center,
           margin: const EdgeInsets.all(10),
           color: Colors.lightBlue,
           padding: const EdgeInsets.all(2),
           child: Text(
             country,
-            style: const TextStyle(letterSpacing: 15),
+            style: const TextStyle(
+              letterSpacing: 15,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+              color: Colors.white,
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: generate,
-          
+          child: Icon(Icons.edit_notifications),
         ),
       ),
     );
