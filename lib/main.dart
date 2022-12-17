@@ -54,7 +54,7 @@ class _HangManState extends State<HangMan> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: generate,
-          child: Icon(Icons.edit_notifications),
+          child: const Icon(Icons.edit_notifications),
         ),
       ),
     );
