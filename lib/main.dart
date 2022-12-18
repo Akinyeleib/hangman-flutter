@@ -127,6 +127,66 @@ class _HangManState extends State<HangMan> {
                         ),
                       ],
                     ),
+                    // Second row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            check("A");
+                          },
+                          child: KeyLetter("A"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("S");
+                          },
+                          child: KeyLetter("S"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("D");
+                          },
+                          child: KeyLetter("D"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("F");
+                          },
+                          child: KeyLetter("F"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("G");
+                          },
+                          child: KeyLetter("G"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("H");
+                          },
+                          child: KeyLetter("H"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("J");
+                          },
+                          child: KeyLetter("J"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("K");
+                          },
+                          child: KeyLetter("K"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("L");
+                          },
+                          child: KeyLetter("L"),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -167,11 +227,15 @@ class KeyLetter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      letter,
-      style: const TextStyle(
-        backgroundColor: Colors.black,
-        color: Colors.amber,
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 3),
+      color: Colors.amber,
+      child: Text(
+        letter,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
