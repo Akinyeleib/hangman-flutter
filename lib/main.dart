@@ -187,6 +187,54 @@ class _HangManState extends State<HangMan> {
                         ),
                       ],
                     ),
+                    // Third row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            check("Z");
+                          },
+                          child: KeyLetter("Z"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("X");
+                          },
+                          child: KeyLetter("X"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("C");
+                          },
+                          child: KeyLetter("C"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("V");
+                          },
+                          child: KeyLetter("V"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("B");
+                          },
+                          child: KeyLetter("B"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("N");
+                          },
+                          child: KeyLetter("N"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("M");
+                          },
+                          child: KeyLetter("M"),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
