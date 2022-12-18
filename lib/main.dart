@@ -24,7 +24,7 @@ class HangMan extends StatefulWidget {
 
 class _HangManState extends State<HangMan> {
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
-  String dashes = "";
+  String dashes = "", clicked = "";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,21 +57,86 @@ class _HangManState extends State<HangMan> {
               TextContainer(dashes),
               // Keyboard
               Container(
+                color: Colors.black,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // First row
-                    Row(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            check("Q");
+                          },
+                          child: KeyLetter("Q"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("W");
+                          },
+                          child: KeyLetter("W"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("E");
+                          },
+                          child: KeyLetter("E"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("R");
+                          },
+                          child: KeyLetter("R"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("T");
+                          },
+                          child: KeyLetter("T"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("Y");
+                          },
+                          child: KeyLetter("Y"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("U");
+                          },
+                          child: KeyLetter("U"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("I");
+                          },
+                          child: KeyLetter("I"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("O");
+                          },
+                          child: KeyLetter("O"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            check("P");
+                          },
+                          child: KeyLetter("P"),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: generate,
-          child: const Icon(Icons.edit_notifications),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: generate,
+        //   child: const Icon(Icons.edit_notifications),
+        // ),
       ),
     );
   }
@@ -83,12 +148,32 @@ class _HangManState extends State<HangMan> {
     });
   }
 
+  void check(String letter) {
+    print("Letter is: $letter");
+  }
+
   String generateDashes() {
     String dash = "";
     for (int i = 0; i < country.length; i++) {
       dash += "-";
     }
     return dash;
+  }
+}
+
+class KeyLetter extends StatelessWidget {
+  String letter;
+  KeyLetter(this.letter, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      letter,
+      style: const TextStyle(
+        backgroundColor: Colors.black,
+        color: Colors.amber,
+      ),
+    );
   }
 }
 
