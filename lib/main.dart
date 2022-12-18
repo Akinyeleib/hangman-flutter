@@ -37,20 +37,41 @@ class _HangManState extends State<HangMan> {
           ),
           centerTitle: true,
         ),
-        body: Container(
-          alignment: Alignment.center,
-          margin: const EdgeInsets.all(10),
-          color: Colors.lightBlue,
-          padding: const EdgeInsets.all(2),
-          child: Text(
-            country,
-            style: const TextStyle(
-              letterSpacing: 15,
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              color: Colors.white,
+        body: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(10),
+              child: Container(
+                  // child:
+                  ),
             ),
-          ),
+            Container(
+              margin: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Holder("High Score", 00),
+                  Holder("Time", 00),
+                  Holder("Score", 00),
+                ],
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.all(10),
+              color: Colors.lightBlue,
+              padding: const EdgeInsets.all(2),
+              child: Text(
+                country,
+                style: const TextStyle(
+                  letterSpacing: 15,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: generate,
@@ -64,5 +85,21 @@ class _HangManState extends State<HangMan> {
     setState(() {
       country = countries[Random().nextInt(countries.length)].toUpperCase();
     });
+  }
+}
+
+class Holder extends StatelessWidget {
+  String label;
+  int value;
+  Holder(this.label, this.value, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(label),
+        Text("$value"),
+      ],
+    );
   }
 }
