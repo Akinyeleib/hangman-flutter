@@ -38,28 +38,35 @@ class _HangManState extends State<HangMan> {
           ),
           centerTitle: true,
         ),
-        body: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: Container(
-                  // child:
-                  ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Holder("High Score", 00),
-                  Holder("Time", 00),
-                  Holder("Score", 00),
-                ],
+        body: Container(
+          margin: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Holder("High Score", 00),
+                    Holder("Time", 00),
+                    Holder("Score", 00),
+                  ],
+                ),
               ),
-            ),
-            TextContainer(country),
-            TextContainer(dashes),
-          ],
+              TextContainer(country),
+              TextContainer(dashes),
+              // Keyboard
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // First row
+                    Row(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: generate,
@@ -109,7 +116,6 @@ class TextContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: const EdgeInsets.all(10),
       color: Colors.lightBlue,
       padding: const EdgeInsets.all(2),
       child: Text(
