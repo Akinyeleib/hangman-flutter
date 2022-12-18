@@ -24,6 +24,7 @@ class HangMan extends StatefulWidget {
 
 class _HangManState extends State<HangMan> {
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
+  String dashes = "";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,21 +57,8 @@ class _HangManState extends State<HangMan> {
                 ],
               ),
             ),
-            Container(
-              alignment: Alignment.center,
-              margin: const EdgeInsets.all(10),
-              color: Colors.lightBlue,
-              padding: const EdgeInsets.all(2),
-              child: Text(
-                country,
-                style: const TextStyle(
-                  letterSpacing: 15,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            TextContainer(country),
+            TextContainer(dashes),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -84,7 +72,16 @@ class _HangManState extends State<HangMan> {
   void generate() {
     setState(() {
       country = countries[Random().nextInt(countries.length)].toUpperCase();
+      dashes = generateDashes();
     });
+  }
+
+  String generateDashes() {
+    String dash = "";
+    for (int i = 0; i < country.length; i++) {
+      dash += "-";
+    }
+    return dash;
   }
 }
 
@@ -100,6 +97,30 @@ class Holder extends StatelessWidget {
         Text(label),
         Text("$value"),
       ],
+    );
+  }
+}
+
+class TextContainer extends StatelessWidget {
+  String text;
+  TextContainer(this.text, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      margin: const EdgeInsets.all(10),
+      color: Colors.lightBlue,
+      padding: const EdgeInsets.all(2),
+      child: Text(
+        text,
+        style: const TextStyle(
+          letterSpacing: 15,
+          fontWeight: FontWeight.bold,
+          fontSize: 25,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
