@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'helper.dart';
-
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(HangMan());
@@ -11,7 +11,7 @@ class HangMan extends StatefulWidget {
 }
 
 class _HangManState extends State<HangMan> {
-  int score = 0;
+  int score = 0, wrongAttempts = 0;
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
   String dashes = "", clicked = "";
   // Assign colors to letters
@@ -262,8 +262,17 @@ class _HangManState extends State<HangMan> {
 
     String res = "";
     dashes = dashes == "" ? generateDashes() : dashes;
+
     if (!country.contains(letter)) {
       wrongLetters.add(letter);
+
+      if (wrongLetters.length > 5) {
+        setState(
+          () {
+            restartGame();
+          },
+        );
+      }
       return;
     }
     rightLetters.add(letter);
@@ -293,5 +302,15 @@ class _HangManState extends State<HangMan> {
       dash += "-";
     }
     return dash;
+  }
+
+  void restartGame() {
+    wrongAttempts = 0;
+    wrongLetters.clear();
+    rightLetters.clear();
+    setState(() {
+      score = 0;
+      generate();
+    });
   }
 }
