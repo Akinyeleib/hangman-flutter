@@ -304,6 +304,12 @@ class _HangManState extends State<HangMan> {
     return dash;
   }
 
+  getData() async {
+    String response =
+        await rootBundle.loadString('assets/textfiles/countries.txt');
+    print(response.split('\n'));
+  }
+
   void restartGame() {
     wrongAttempts = 0;
     wrongLetters.clear();
