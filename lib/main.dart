@@ -290,6 +290,8 @@ class _HangManState extends State<HangMan> {
         dashes = res;
 
         print("Dashed is: $dashes");
+
+        if (dashes == country) generate();
       },
     );
 
@@ -359,6 +361,7 @@ class TextContainer extends StatelessWidget {
           fontSize: 25,
           color: Colors.white,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
