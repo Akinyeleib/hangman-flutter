@@ -1,33 +1,9 @@
 import 'dart:math';
+import 'helper.dart';
 
 import 'package:flutter/material.dart';
 
 void main() => runApp(HangMan());
-
-List<String> countries = [
-  "Nigeria",
-  "Niger",
-  "Chad",
-  "Portugal",
-  "France",
-  "Argentina",
-  "China",
-  "Japan",
-  "Croatia",
-  "Belgium"
-];
-
-Color defaultColor = Colors.amber;
-Color rightColor = Colors.green;
-Color wrongColor = Colors.red;
-
-TextStyle keyStyle = const TextStyle(
-  fontSize: 25,
-);
-
-// generate Alphabets
-List<String> alphabets =
-    List.generate(26, (index) => String.fromCharCode(index + 65));
 
 class HangMan extends StatefulWidget {
   @override
@@ -37,6 +13,7 @@ class HangMan extends StatefulWidget {
 class _HangManState extends State<HangMan> {
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
   String dashes = "", clicked = "";
+  // Assign colors to letters
   Map bgColor = {for (var l in alphabets) l: defaultColor};
 
   @override
@@ -271,6 +248,8 @@ class _HangManState extends State<HangMan> {
   }
 
   void generate() {
+    wrongLetters.clear();
+    rightLetters.clear();
     setState(() {
       country = countries[Random().nextInt(countries.length)].toUpperCase();
       dashes = generateDashes();
@@ -278,9 +257,15 @@ class _HangManState extends State<HangMan> {
   }
 
   void check(String letter) {
+    if (wrongLetters.contains(letter) || rightLetters.contains(letter)) return;
+
     String res = "";
     dashes = dashes == "" ? generateDashes() : dashes;
-    if (!country.contains(letter)) return;
+    if (!country.contains(letter)) {
+      wrongLetters.add(letter);
+      return;
+    }
+    rightLetters.add(letter);
 
     setState(
       () {
@@ -306,72 +291,5 @@ class _HangManState extends State<HangMan> {
       dash += "-";
     }
     return dash;
-  }
-}
-
-class KeyLetter extends StatelessWidget {
-  String letter;
-  KeyLetter(this.letter, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 7),
-      color: Colors.amber,
-      child: Text(
-        letter,
-        style: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          fontSize: 35,
-        ),
-      ),
-    );
-  }
-}
-
-class Holder extends StatelessWidget {
-  String label;
-  int value;
-  Holder(this.label, this.value, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          label,
-          style: keyStyle,
-        ),
-        Text(
-          "$value",
-          style: keyStyle,
-        ),
-      ],
-    );
-  }
-}
-
-class TextContainer extends StatelessWidget {
-  String text;
-  TextContainer(this.text, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      color: Colors.lightBlue,
-      padding: const EdgeInsets.all(2),
-      child: Text(
-        text,
-        style: const TextStyle(
-          letterSpacing: 15,
-          fontWeight: FontWeight.bold,
-          fontSize: 25,
-          color: Colors.white,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    );
   }
 }
