@@ -25,8 +25,6 @@ Color wrongColor = Colors.red;
 List<String> alphabets =
     List.generate(26, (index) => String.fromCharCode(index + 65));
 
-Map bgColor = {for (var l in alphabets) l: defaultColor};
-
 class HangMan extends StatefulWidget {
   @override
   State<HangMan> createState() => _HangManState();
@@ -35,6 +33,8 @@ class HangMan extends StatefulWidget {
 class _HangManState extends State<HangMan> {
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
   String dashes = "", clicked = "";
+  Map bgColor = {for (var l in alphabets) l: defaultColor};
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -64,7 +64,7 @@ class _HangManState extends State<HangMan> {
                 ),
               ),
               TextContainer(country),
-              TextContainer(dashes),
+              TextContainer(dashes == "" ? generateDashes() : dashes),
               // Keyboard
               Container(
                 color: Colors.black,
@@ -262,10 +262,6 @@ class _HangManState extends State<HangMan> {
             ],
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: generate,
-        //   child: const Icon(Icons.edit_notifications),
-        // ),
       ),
     );
   }
@@ -278,8 +274,26 @@ class _HangManState extends State<HangMan> {
   }
 
   void check(String letter) {
-    print("Letter is: $letter");
-    generate();
+    String res = "";
+    dashes = dashes == "" ? generateDashes() : dashes;
+
+    setState(
+      () {
+        if (country.contains(letter)) {
+          for (var i = 0; i < country.length; i++) {
+            if (letter == country[i]) {
+              res += letter;
+            } else
+              res += dashes[i];
+          }
+        }
+        dashes = res;
+
+        print("Dashed is: $dashes");
+      },
+    );
+
+    // generate();
   }
 
   String generateDashes() {
