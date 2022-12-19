@@ -11,7 +11,7 @@ class HangMan extends StatefulWidget {
 }
 
 class _HangManState extends State<HangMan> {
-  int score = 0, wrongAttempts = 0;
+  int score = 0, wrongAttempts = 0, wrongAttemptLimit = 5;
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
   String dashes = "", clicked = "";
   // Assign colors to letters
@@ -266,7 +266,7 @@ class _HangManState extends State<HangMan> {
     if (!country.contains(letter)) {
       wrongLetters.add(letter);
 
-      if (wrongLetters.length > 5) {
+      if (wrongLetters.length > wrongAttemptLimit) {
         setState(
           () {
             restartGame();
@@ -314,9 +314,11 @@ class _HangManState extends State<HangMan> {
     wrongAttempts = 0;
     wrongLetters.clear();
     rightLetters.clear();
-    setState(() {
-      score = 0;
-      generate();
-    });
+    setState(
+      () {
+        score = 0;
+        generate();
+      },
+    );
   }
 }
