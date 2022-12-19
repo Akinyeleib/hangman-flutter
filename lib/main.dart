@@ -21,6 +21,10 @@ Color defaultColor = Colors.amber;
 Color rightColor = Colors.green;
 Color wrongColor = Colors.red;
 
+TextStyle keyStyle = const TextStyle(
+  fontSize: 25,
+);
+
 // generate Alphabets
 List<String> alphabets =
     List.generate(26, (index) => String.fromCharCode(index + 65));
@@ -284,19 +288,16 @@ class _HangManState extends State<HangMan> {
           for (var i = 0; i < country.length; i++) {
             if (letter == country[i]) {
               res += letter;
-            } else
+            } else {
               res += dashes[i];
+            }
           }
         }
         dashes = res;
 
-        print("Dashed is: $dashes");
-
         if (dashes == country) generate();
       },
     );
-
-    // generate();
   }
 
   String generateDashes() {
@@ -340,15 +341,11 @@ class Holder extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
-            fontSize: 25,
-          ),
+          style: keyStyle,
         ),
         Text(
           "$value",
-          style: TextStyle(
-            fontSize: 25,
-          ),
+          style: keyStyle,
         ),
       ],
     );
