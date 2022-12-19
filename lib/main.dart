@@ -11,6 +11,7 @@ class HangMan extends StatefulWidget {
 }
 
 class _HangManState extends State<HangMan> {
+  int score = 0;
   String country = countries[Random().nextInt(countries.length)].toUpperCase();
   String dashes = "", clicked = "";
   // Assign colors to letters
@@ -40,7 +41,7 @@ class _HangManState extends State<HangMan> {
                   children: <Widget>[
                     Holder("High Score", 00),
                     Holder("Time", 00),
-                    Holder("Score", 00),
+                    Holder("Score", score),
                   ],
                 ),
               ),
@@ -273,6 +274,7 @@ class _HangManState extends State<HangMan> {
           for (var i = 0; i < country.length; i++) {
             if (letter == country[i]) {
               res += letter;
+              score += 2;
             } else {
               res += dashes[i];
             }
