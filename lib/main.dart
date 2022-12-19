@@ -254,10 +254,14 @@ class _HangManState extends State<HangMan> {
   void generate() {
     wrongLetters.clear();
     rightLetters.clear();
-    setState(() {
-      country = countries[Random().nextInt(countries.length)].toUpperCase();
-      dashes = generateDashes();
-    });
+    setState(
+      () {
+        int range = countries.length;
+        int rd = Random().nextInt(range);
+        country = countries[rd].toUpperCase();
+        dashes = generateDashes();
+      },
+    );
   }
 
   void check(String letter) {
@@ -294,7 +298,8 @@ class _HangManState extends State<HangMan> {
         }
         dashes = res;
 
-        if (dashes == country) Future.delayed(const Duration(seconds: 1), generate);
+        if (dashes == country)
+          Future.delayed(const Duration(seconds: 1), generate);
       },
     );
   }

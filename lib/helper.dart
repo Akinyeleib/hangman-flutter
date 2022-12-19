@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 List<String> countries = [
   "Nigeria",
@@ -30,6 +31,16 @@ TextStyle keyStyle = const TextStyle(
 // generate Alphabets
 List<String> alphabets =
     List.generate(26, (index) => String.fromCharCode(index + 65));
+
+
+// Future<List<String>> countries = getData();
+
+// // Future<List<String>> getData() async {
+// //   String response =
+// //       await rootBundle.loadString('assets/textfiles/countries.txt');
+// //   print(response.split('\n'));
+// //   return response.split('\n');
+// }
 
 class KeyLetter extends StatelessWidget {
   String letter;
