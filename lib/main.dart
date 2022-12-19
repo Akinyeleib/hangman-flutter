@@ -21,6 +21,11 @@ Color defaultColor = Colors.amber;
 Color rightColor = Colors.green;
 Color wrongColor = Colors.red;
 
+// generate Alphabets
+List<String> alphabets =
+    List.generate(26, (index) => String.fromCharCode(index + 65));
+
+Map bgColor = {for (var l in alphabets) l: defaultColor};
 
 class HangMan extends StatefulWidget {
   @override
