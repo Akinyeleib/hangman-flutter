@@ -276,6 +276,7 @@ class _HangManState extends State<HangMan> {
   void check(String letter) {
     String res = "";
     dashes = dashes == "" ? generateDashes() : dashes;
+    if (!country.contains(letter)) return;
 
     setState(
       () {
@@ -321,6 +322,7 @@ class KeyLetter extends StatelessWidget {
         style: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
+          fontSize: 35,
         ),
       ),
     );
@@ -336,8 +338,18 @@ class Holder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(label),
-        Text("$value"),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        ),
+        Text(
+          "$value",
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        ),
       ],
     );
   }
