@@ -17,6 +17,11 @@ List<String> countries = [
   "Belgium"
 ];
 
+Color defaultColor = Colors.amber;
+Color rightColor = Colors.green;
+Color wrongColor = Colors.red;
+
+
 class HangMan extends StatefulWidget {
   @override
   State<HangMan> createState() => _HangManState();
