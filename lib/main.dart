@@ -294,7 +294,7 @@ class _HangManState extends State<HangMan> {
         }
         dashes = res;
 
-        if (dashes == country) generate();
+        if (dashes == country) Future.delayed(const Duration(seconds: 1), generate);
       },
     );
   }
