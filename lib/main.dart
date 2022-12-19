@@ -20,7 +20,7 @@ class _HangManState extends State<HangMan> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: the_color),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -45,13 +45,16 @@ class _HangManState extends State<HangMan> {
                   ],
                 ),
               ),
-              TextContainer(country),
+              // TextContainer(country),
               TextContainer(dashes == "" ? generateDashes() : dashes),
               // Keyboard
               Container(
-                color: Colors.black,
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 padding: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

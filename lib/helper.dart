@@ -16,9 +16,12 @@ List<String> countries = [
 List<String> wrongLetters = [];
 List<String> rightLetters = [];
 
-Color defaultColor = Colors.amber;
+MaterialColor the_color = Colors.purple;
+Color defaultColor = Color.fromARGB(63, 240, 231, 240);
 Color rightColor = Colors.green;
 Color wrongColor = Colors.red;
+Color boardColor = the_color;
+const Color letterColor = Colors.black;
 
 TextStyle keyStyle = const TextStyle(
   fontSize: 25,
@@ -37,11 +40,13 @@ class KeyLetter extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 7),
       decoration: BoxDecoration(
-          color: Colors.amber, borderRadius: BorderRadius.circular(20)),
+        color: defaultColor,
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Text(
         letter,
         style: const TextStyle(
-          color: Colors.black,
+          color: letterColor,
           fontWeight: FontWeight.bold,
           fontSize: 35,
         ),
@@ -80,7 +85,7 @@ class TextContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      color: Colors.lightBlue,
+      color: boardColor,
       padding: const EdgeInsets.all(2),
       child: Text(
         text,
