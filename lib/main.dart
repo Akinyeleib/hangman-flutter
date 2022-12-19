@@ -58,182 +58,193 @@ class _HangManState extends State<HangMan> {
               // Keyboard
               Container(
                 color: Colors.black,
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // First row
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            check("Q");
-                          },
-                          child: KeyLetter("Q"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("W");
-                          },
-                          child: KeyLetter("W"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("E");
-                          },
-                          child: KeyLetter("E"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("R");
-                          },
-                          child: KeyLetter("R"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("T");
-                          },
-                          child: KeyLetter("T"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("Y");
-                          },
-                          child: KeyLetter("Y"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("U");
-                          },
-                          child: KeyLetter("U"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("I");
-                          },
-                          child: KeyLetter("I"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("O");
-                          },
-                          child: KeyLetter("O"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("P");
-                          },
-                          child: KeyLetter("P"),
-                        ),
-                      ],
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              check("Q");
+                            },
+                            child: KeyLetter("Q"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("W");
+                            },
+                            child: KeyLetter("W"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("E");
+                            },
+                            child: KeyLetter("E"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("R");
+                            },
+                            child: KeyLetter("R"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("T");
+                            },
+                            child: KeyLetter("T"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("Y");
+                            },
+                            child: KeyLetter("Y"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("U");
+                            },
+                            child: KeyLetter("U"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("I");
+                            },
+                            child: KeyLetter("I"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("O");
+                            },
+                            child: KeyLetter("O"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("P");
+                            },
+                            child: KeyLetter("P"),
+                          ),
+                        ],
+                      ),
                     ),
                     // Second row
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            check("A");
-                          },
-                          child: KeyLetter("A"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("S");
-                          },
-                          child: KeyLetter("S"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("D");
-                          },
-                          child: KeyLetter("D"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("F");
-                          },
-                          child: KeyLetter("F"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("G");
-                          },
-                          child: KeyLetter("G"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("H");
-                          },
-                          child: KeyLetter("H"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("J");
-                          },
-                          child: KeyLetter("J"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("K");
-                          },
-                          child: KeyLetter("K"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("L");
-                          },
-                          child: KeyLetter("L"),
-                        ),
-                      ],
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              check("A");
+                            },
+                            child: KeyLetter("A"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("S");
+                            },
+                            child: KeyLetter("S"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("D");
+                            },
+                            child: KeyLetter("D"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("F");
+                            },
+                            child: KeyLetter("F"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("G");
+                            },
+                            child: KeyLetter("G"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("H");
+                            },
+                            child: KeyLetter("H"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("J");
+                            },
+                            child: KeyLetter("J"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("K");
+                            },
+                            child: KeyLetter("K"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("L");
+                            },
+                            child: KeyLetter("L"),
+                          ),
+                        ],
+                      ),
                     ),
                     // Third row
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            check("Z");
-                          },
-                          child: KeyLetter("Z"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("X");
-                          },
-                          child: KeyLetter("X"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("C");
-                          },
-                          child: KeyLetter("C"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("V");
-                          },
-                          child: KeyLetter("V"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("B");
-                          },
-                          child: KeyLetter("B"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("N");
-                          },
-                          child: KeyLetter("N"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            check("M");
-                          },
-                          child: KeyLetter("M"),
-                        ),
-                      ],
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              check("Z");
+                            },
+                            child: KeyLetter("Z"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("X");
+                            },
+                            child: KeyLetter("X"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("C");
+                            },
+                            child: KeyLetter("C"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("V");
+                            },
+                            child: KeyLetter("V"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("B");
+                            },
+                            child: KeyLetter("B"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("N");
+                            },
+                            child: KeyLetter("N"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              check("M");
+                            },
+                            child: KeyLetter("M"),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -258,6 +269,7 @@ class _HangManState extends State<HangMan> {
 
   void check(String letter) {
     print("Letter is: $letter");
+    generate();
   }
 
   String generateDashes() {
@@ -276,7 +288,7 @@ class KeyLetter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 3),
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 7),
       color: Colors.amber,
       child: Text(
         letter,
