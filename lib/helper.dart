@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-List<String> wrongLetters = [];
-List<String> rightLetters = [];
 
 MaterialColor the_color = Colors.purple;
 Color defaultColor = Color.fromARGB(63, 240, 231, 240);

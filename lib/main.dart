@@ -17,6 +17,8 @@ class _HangManState extends State<HangMan> {
   // Assign colors to letters
   Map bgColor = {for (var l in alphabets) l.toUpperCase(): defaultColor};
   List<String> countries = ["Nigeria"];
+  List<String> wrongLetters = [];
+  List<String> rightLetters = [];
 
   @override
   void initState() {
