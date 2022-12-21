@@ -334,24 +334,20 @@ class _HangManState extends State<HangMan> {
   String generateDashes() {
     String dash = "";
     for (int i = 0; i < country.length; i++) {
-      if (country[i] == " ")
-        dash += " ";
-      else
+      RegExp regExp = RegExp("[A-Z]");
+      String current = country[i];
+      if (!regExp.hasMatch(current)) {
+        dash += current;
+      } else {
         dash += "-";
+      }
     }
     return dash;
   }
 
-  getData() async {
-    String response =
-        await rootBundle.loadString('assets/textfiles/countries.txt');
-    print(response.split('\n'));
-  }
-
   void restartGame() {
+    readCountries();
     wrongAttempts = 0;
-    wrongLetters.clear();
-    rightLetters.clear();
     setState(
       () {
         score = 0;
