@@ -16,21 +16,21 @@ class _HangManState extends State<HangMan> {
   late String country, dashes, clicked;
   // Assign colors to letters
   Map bgColor = {for (var l in alphabets) l.toUpperCase(): defaultColor};
-  List<String> countries = ["Nigeria"];
+  List<String> countries = [];
   List<String> wrongLetters = [];
   List<String> rightLetters = [];
+  File file = File("assets/textfiles/countries.txt");
 
   @override
   void initState() {
     super.initState();
-    generate();
+    readCountries();
     clicked = "";
     dashes = "";
-    readCountries();
+    generate();
   }
 
   void readCountries() {
-    File file = File("assets/textfiles/countries.txt");
     countries = file.readAsLinesSync();
     // print(countries);
   }
