@@ -15,7 +15,7 @@ class _HangManState extends State<HangMan> {
   int score = 0, wrongAttempts = 0, wrongAttemptLimit = 5;
   late String country, dashes, clicked;
   // Assign colors to letters
-  Map bgColor = {for (var l in alphabets) l: defaultColor};
+  Map bgColor = {for (var l in alphabets) l.toUpperCase(): defaultColor};
   List<String> countries = ["Nigeria"];
 
   @override
