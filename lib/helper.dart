@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-List<String> countries = [
-  "Nigeria",
-  "Niger",
-  "Chad",
-  "Portugal",
-  "France",
-  "Argentina",
-  "China",
-  "Japan",
-  "Croatia",
-  "Belgium"
-];
-
 List<String> wrongLetters = [];
 List<String> rightLetters = [];
 
@@ -32,7 +19,6 @@ TextStyle keyStyle = const TextStyle(
 List<String> alphabets =
     List.generate(26, (index) => String.fromCharCode(index + 65));
 
-
 // Future<List<String>> countries = getData();
 
 // // Future<List<String>> getData() async {
@@ -49,7 +35,7 @@ class KeyLetter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 7),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 7),
       decoration: BoxDecoration(
         color: defaultColor,
         borderRadius: BorderRadius.circular(20),
@@ -59,7 +45,7 @@ class KeyLetter extends StatelessWidget {
         style: const TextStyle(
           color: letterColor,
           fontWeight: FontWeight.bold,
-          fontSize: 35,
+          fontSize: 40,
         ),
       ),
     );
@@ -97,7 +83,7 @@ class TextContainer extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       color: boardColor,
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.all(20),
       child: Text(
         text,
         style: const TextStyle(

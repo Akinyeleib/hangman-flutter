@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'helper.dart';
 import 'package:flutter/services.dart';
@@ -12,10 +13,27 @@ class HangMan extends StatefulWidget {
 
 class _HangManState extends State<HangMan> {
   int score = 0, wrongAttempts = 0, wrongAttemptLimit = 5;
-  String country = countries[Random().nextInt(countries.length)].toUpperCase();
-  String dashes = "", clicked = "";
+  late String country, dashes, clicked;
   // Assign colors to letters
   Map bgColor = {for (var l in alphabets) l: defaultColor};
+  List<String> countries = ["Nigeria"];
+
+  @override
+  void initState() {
+    super.initState();
+    generate();
+    clicked = "";
+    dashes = "";
+    // readCountries();
+    File file = File("assets/textfiles/countries.txt");
+    countries = file.readAsLinesSync();
+  }
+
+  void readCountries() {
+    File file = File("assets/textfiles/countries.txt");
+    countries = file.readAsLinesSync();
+    print(countries);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +65,17 @@ class _HangManState extends State<HangMan> {
               ),
               // TextContainer(country),
               TextContainer(dashes == "" ? generateDashes() : dashes),
+              // Container(
+              //   alig2335nment: Alignment.center,
+              //   child: Row(
+              //     children: <Widget>[
+              //       for (String l in dashes.split("")) KeyLetter(l)
+              //     ],
+              //   ),
+              // ),
               // Keyboard
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 20),
+                margin: const EdgeInsets.only(bottom: 50),
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
                   color: Colors.purple,
@@ -262,6 +288,7 @@ class _HangManState extends State<HangMan> {
         dashes = generateDashes();
       },
     );
+    countries.remove(country);
   }
 
   void check(String letter) {
@@ -307,7 +334,10 @@ class _HangManState extends State<HangMan> {
   String generateDashes() {
     String dash = "";
     for (int i = 0; i < country.length; i++) {
-      dash += "-";
+      if (country[i] == " ")
+        dash += " ";
+      else
+        dash += "-";
     }
     return dash;
   }
