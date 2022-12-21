@@ -24,15 +24,13 @@ class _HangManState extends State<HangMan> {
     generate();
     clicked = "";
     dashes = "";
-    // readCountries();
-    File file = File("assets/textfiles/countries.txt");
-    countries = file.readAsLinesSync();
+    readCountries();
   }
 
   void readCountries() {
     File file = File("assets/textfiles/countries.txt");
     countries = file.readAsLinesSync();
-    print(countries);
+    // print(countries);
   }
 
   @override
