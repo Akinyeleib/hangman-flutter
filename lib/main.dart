@@ -68,8 +68,9 @@ class _HangManState extends State<HangMan> {
         }
         dashes = res;
 
-        if (dashes == country)
+        if (dashes == country) {
           Future.delayed(const Duration(seconds: 1), generate);
+        }
       },
     );
   }
@@ -102,7 +103,6 @@ class _HangManState extends State<HangMan> {
                   ],
                 ),
               ),
-              // TextContainer(country),
               TextContainer(dashes == "" ? generateDashes() : dashes),
               // Container(
               //   alig2335nment: Alignment.center,
