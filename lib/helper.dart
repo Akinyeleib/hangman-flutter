@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 MaterialColor the_color = Colors.purple;
 Color defaultColor = Color.fromARGB(63, 240, 231, 240);
 Color rightColor = Colors.green;
@@ -15,6 +14,9 @@ TextStyle keyStyle = const TextStyle(
 // generate Alphabets
 List<String> alphabets =
     List.generate(26, (index) => String.fromCharCode(index + 65));
+
+// Assign colors to letters
+Map bgColor = {for (var l in alphabets) l.toUpperCase(): defaultColor};
 
 // Future<List<String>> countries = getData();
 
@@ -34,7 +36,7 @@ class KeyLetter extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 7),
       decoration: BoxDecoration(
-        color: defaultColor,
+        color: bgColor[letter],
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
