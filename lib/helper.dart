@@ -15,21 +15,12 @@ TextStyle keyStyle = const TextStyle(
 List<String> alphabets =
     List.generate(26, (index) => String.fromCharCode(index + 65));
 
-// Assign colors to letters
+// Assign default colors to letters
 Map bgColor = {for (var l in alphabets) l.toUpperCase(): defaultColor};
 
-// Future<List<String>> countries = getData();
-
-// // Future<List<String>> getData() async {
-// //   String response =
-// //       await rootBundle.loadString('assets/textfiles/countries.txt');
-// //   print(response.split('\n'));
-// //   return response.split('\n');
-// }
-
 class KeyLetter extends StatelessWidget {
-  String letter;
-  KeyLetter(this.letter, {super.key});
+  final String letter;
+  const KeyLetter(this.letter, {super.key});
 
   @override
   Widget build(BuildContext context) {
