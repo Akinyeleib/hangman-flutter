@@ -58,14 +58,12 @@ class _HangManState extends State<HangMan> {
     setState(
       () {
         bgColor[letter] = rightColor;
-        if (country.contains(letter)) {
-          for (var i = 0; i < country.length; i++) {
-            if (letter == country[i]) {
-              res += letter;
-              score += 2;
-            } else {
-              res += dashes[i];
-            }
+        for (var i = 0; i < country.length; i++) {
+          if (letter == country[i]) {
+            res += letter;
+            score += 2;
+          } else {
+            res += dashes[i];
           }
         }
         dashes = res;
@@ -319,6 +317,15 @@ class _HangManState extends State<HangMan> {
   }
 
   void generate() {
+    setState(() {
+      for (var elem in wrongLetters) {
+        bgColor[elem] = defaultColor;
+      }
+      for (var elem in rightLetters) {
+        bgColor[elem] = defaultColor;
+      }
+    });
+
     wrongLetters.clear();
     rightLetters.clear();
     setState(
