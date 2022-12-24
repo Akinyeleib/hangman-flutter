@@ -46,6 +46,16 @@ class _HangManState extends State<HangMan> {
 
           if (wrongLetters.length > wrongAttemptLimit) {
             restartGame();
+            AlertDialog(
+              title: const Text(
+                "Game Over",
+                textAlign: TextAlign.center,
+              ),
+              content: const Text('You got 5 countries right.'),
+              actions: [
+                TextButton(onPressed: restartGame, child: const Text('Restart'))
+              ],
+            );
           }
         },
       );
