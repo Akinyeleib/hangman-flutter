@@ -28,7 +28,21 @@ class _HangManState extends State<HangMan> {
   }
 
   void readCountries() {
-    countries = file.readAsLinesSync();
+    try {
+      countries = file.readAsLinesSync();
+      print("File read successful!");
+    } on Exception {
+      print("File read failed!");
+      countries = [
+        "Niger",
+        "Liberia",
+        "Hungary",
+        "Iceland",
+        "Slovaia",
+        "Germany",
+        "Finland"
+      ];
+    }
     // print(countries);
   }
 
