@@ -40,17 +40,15 @@ class _HangManState extends State<HangMan> {
 
     if (!country.contains(letter)) {
       wrongLetters.add(letter);
-      setState(() {
-        bgColor[letter] = wrongColor;
-      });
+      setState(
+        () {
+          bgColor[letter] = wrongColor;
 
-      if (wrongLetters.length > wrongAttemptLimit) {
-        setState(
-          () {
+          if (wrongLetters.length > wrongAttemptLimit) {
             restartGame();
-          },
-        );
-      }
+          }
+        },
+      );
       return;
     }
     rightLetters.add(letter);
