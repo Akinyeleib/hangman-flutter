@@ -16,16 +16,8 @@ class _HangManState extends State<HangMan> {
   List<String> countries = [];
   List<String> wrongLetters = [];
   List<String> rightLetters = [];
-  File file = File("assets/textfiles/countries.txt");
 
-  @override
-  void initState() {
-    super.initState();
-    readCountries();
-    clicked = "";
-    dashes = "";
-    generate();
-  }
+  File file = File("assets/countries.txt");
 
   void readCountries() {
     try {
@@ -44,6 +36,15 @@ class _HangManState extends State<HangMan> {
       ];
     }
     // print(countries);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readCountries();
+    clicked = "";
+    dashes = "";
+    generate();
   }
 
   void check(String letter) {
