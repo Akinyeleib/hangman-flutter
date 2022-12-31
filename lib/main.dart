@@ -61,16 +61,16 @@ class _HangManState extends State<HangMan> {
 
           if (wrongLetters.length > wrongAttemptLimit) {
             restartGame();
-            AlertDialog(
-              title: const Text(
-                "Game Over",
-                textAlign: TextAlign.center,
-              ),
-              content: const Text('You got 5 countries right.'),
-              actions: [
-                TextButton(onPressed: restartGame, child: const Text('Restart'))
-              ],
-            );
+            // AlertDialog(
+            //   title: const Text(
+            //     "Game Over",
+            //     textAlign: TextAlign.center,
+            //   ),
+            //   content: const Text('You got 5 countries right.'),
+            //   actions: [
+            //     TextButton(onPressed: restartGame, child: const Text('Restart'))
+            //   ],
+            // );
           }
         },
       );
@@ -140,7 +140,7 @@ class _HangManState extends State<HangMan> {
                 margin: const EdgeInsets.only(bottom: 50),
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
-                  color: Colors.purple,
+                  color: boardColor,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Column(

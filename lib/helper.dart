@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-MaterialColor the_color = Colors.purple;
+MaterialColor the_color = Colors.amber;
 Color defaultColor = Color.fromARGB(63, 240, 231, 240);
 Color rightColor = Colors.green;
 Color wrongColor = Colors.red;
